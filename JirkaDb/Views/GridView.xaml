@@ -11,6 +11,6 @@
     d:DesignWidth="300"
     mc:Ignorable="d">
 
-    <syncfusion:SfDataGrid />
+    <syncfusion:GridControl />
 
 </UserControl>
