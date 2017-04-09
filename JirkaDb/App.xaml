@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="JirkaDb.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:appBootstrapper="clr-namespace:JirkaDb.AppBootstrapper"
+    xmlns:local="clr-namespace:JirkaDb">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <appBootstrapper:AppBootstrapper x:Key="bootstrapper" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,86 @@
+﻿<fluent:RibbonWindow
+    x:Class="JirkaDb.Views.MainWindowView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cal="http://www.caliburnproject.org"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fluent="urn:fluent-ribbon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:JirkaDb.ViewModels"
+    xmlns:views="clr-namespace:JirkaDb.Views"
+    Title="MainWindowView"
+    Width="525"
+    Height="350"
+    d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
+    mc:Ignorable="d">
+
+    <fluent:RibbonWindow.Resources>
+        <Style
+            x:Key="ButtonStyle"
+            BasedOn="{StaticResource {x:Type Button}}"
+            TargetType="Button">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+    </fluent:RibbonWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <fluent:Ribbon>
+            <!--  Backstage  -->
+            <fluent:Ribbon.Menu>
+                <fluent:Backstage Header="Home" />
+            </fluent:Ribbon.Menu>
+
+            <!--  Tabs  -->
+            <fluent:RibbonTabItem Header="File">
+                <fluent:RibbonGroupBox Header="Open">
+                    <fluent:Button cal:Message.Attach="[Event Click] = [Action LoadFile]" Header="Load" />
+                </fluent:RibbonGroupBox>
+                <!--<fluent:RibbonGroupBox Header="Group">
+                    <fluent:Button
+                        Header="Green"
+                        Icon="Images\Green.png"
+                        LargeIcon="Images\GreenLarge.png" />
+                    <fluent:Button
+                        Header="Grey"
+                        Icon="Images\Gray.png"
+                        LargeIcon="Images\GrayLarge.png" />
+                </fluent:RibbonGroupBox>-->
+            </fluent:RibbonTabItem>
+
+            <fluent:RibbonTabItem Header="Import and export">
+                <fluent:RibbonGroupBox Header="Import">
+                    <Button
+                        cal:Message.Attach="[Event Click] = [Action ImportSql]"
+                        Style="{StaticResource ButtonStyle}"
+                        ToolTip="Import from SQL file">
+                        <Image Source="/Images;Component/Icons/DataImport64Green.png" />
+                    </Button>
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="Export">
+                    <Button
+                        cal:Message.Attach="[Event Click] = [Action ExportToCsv]"
+                        Style="{StaticResource ButtonStyle}"
+                        ToolTip="Export to CSV">
+                        <Image Source="/Images;Component/Icons/CsvExport64Black.png" />
+                    </Button>
+                    <Button
+                        cal:Message.Attach="[Event Click] = [Action ExportToExcel]"
+                        Style="{StaticResource ButtonStyle}"
+                        ToolTip="Export to Excel">
+                        <Image Source="/Images;Component/Icons/ExcelExport64Green.png" />
+                    </Button>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
+
+
+        <views:GridView Grid.Row="1" DataContext="{Binding GridModel}" />
+
+    </Grid>
+</fluent:RibbonWindow>
