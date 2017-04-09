@@ -131,9 +131,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CsvExport.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Images\Images.csproj">
       <Project>{a0b81b37-d3a4-4284-a764-d7e410086ba3}</Project>
       <Name>Images</Name>
