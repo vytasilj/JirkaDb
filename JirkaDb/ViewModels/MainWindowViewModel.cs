@@ -1,4 +1,6 @@
 ﻿using Caliburn.Micro;
+using JirkaDb.Attributes;
+using JirkaDb.FileDialogs;
 
 namespace JirkaDb.ViewModels
 {
@@ -14,5 +16,24 @@ namespace JirkaDb.ViewModels
 
 
         public GridViewModel GridModel => m_gridModel;
+
+
+        [ForUi]
+        public void ExportToCsv()
+        {
+            SaveDialog.GetCsvFile();
+        }
+
+        [ForUi]
+        public void ExportToExcel()
+        {
+            SaveDialog.GetXlsFile();
+        }
+
+        [ForUi]
+        public void ImportSql()
+        {
+            OpenDialog.GetSqlFile();
+        }
     }
 }
