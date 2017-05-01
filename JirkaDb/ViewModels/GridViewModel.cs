@@ -100,10 +100,10 @@ namespace JirkaDb.ViewModels
         {
             StringBuilder stringBuilder = new StringBuilder();
             string str1 = ";";
-            for (int top = 0; top <= m_table.Rows.Count; ++top)
+            for (int top = 0; top <= gridModel.RowCount; ++top)
             {
                 bool flag = true;
-                for (int left = 0; left <= m_table.Columns.Count; ++left)
+                for (int left = 0; left <= gridModel.ColumnCount; ++left)
                 {
                     if (!flag)
                         stringBuilder.Append(str1);
