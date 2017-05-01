@@ -32,16 +32,17 @@
 
         <fluent:Ribbon>
             <!--  Backstage  -->
-            <fluent:Ribbon.Menu>
+            <!--<fluent:Ribbon.Menu>
                 <fluent:Backstage Header="Home" />
-            </fluent:Ribbon.Menu>
+            </fluent:Ribbon.Menu>-->
 
             <!--  Tabs  -->
-            <fluent:RibbonTabItem Header="File">
+            <!--<fluent:RibbonTabItem Header="File">
                 <fluent:RibbonGroupBox Header="Open">
                     <fluent:Button cal:Message.Attach="[Event Click] = [Action LoadFile]" Header="Load" />
                 </fluent:RibbonGroupBox>
-                <!--<fluent:RibbonGroupBox Header="Group">
+            -->
+            <!--<fluent:RibbonGroupBox Header="Group">
                     <fluent:Button
                         Header="Green"
                         Icon="Images\Green.png"
@@ -51,7 +52,8 @@
                         Icon="Images\Gray.png"
                         LargeIcon="Images\GrayLarge.png" />
                 </fluent:RibbonGroupBox>-->
-            </fluent:RibbonTabItem>
+            <!--
+            </fluent:RibbonTabItem>-->
 
             <fluent:RibbonTabItem Header="Import and export">
                 <fluent:RibbonGroupBox Header="Import">
@@ -72,7 +74,8 @@
                     <Button
                         cal:Message.Attach="[Event Click] = [Action ExportToExcel]"
                         Style="{StaticResource ButtonStyle}"
-                        ToolTip="Export to Excel">
+                        ToolTip="Export to Excel"
+                        Visibility="Collapsed">
                         <Image Source="/Images;Component/Icons/ExcelExport64Green.png" />
                     </Button>
                 </fluent:RibbonGroupBox>
