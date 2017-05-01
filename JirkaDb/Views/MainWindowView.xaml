@@ -79,8 +79,9 @@
             </fluent:RibbonTabItem>
         </fluent:Ribbon>
 
+        <ContentControl Grid.Row="1" cal:View.Model="{Binding GridModel}" />
 
-        <views:GridView Grid.Row="1" DataContext="{Binding GridModel}" />
+        <!--<views:GridView Grid.Row="1" DataContext="{Binding GridModel}" />-->
 
     </Grid>
 </fluent:RibbonWindow>

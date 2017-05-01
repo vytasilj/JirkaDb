@@ -63,6 +63,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Syncfusion\Syncfusion.GridCommon.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.GridConverter.WPF, Version=15.1460.0.41, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Syncfusion\Syncfusion.GridConverter.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SfGrid.WPF, Version=15.1460.0.41, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Syncfusion\Syncfusion.SfGrid.WPF.dll</HintPath>
@@ -120,6 +124,9 @@
     <Compile Include="FileDialogs\FileDialogUtils.cs" />
     <Compile Include="FileDialogs\OpenDialog.cs" />
     <Compile Include="FileDialogs\SaveDialog.cs" />
+    <Compile Include="Import\Importer.cs" />
+    <Compile Include="Import\ImportTable.cs" />
+    <Compile Include="Import\ImportValues.cs" />
     <Compile Include="ViewModels\GridViewModel.cs" />
     <Compile Include="Views\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
@@ -162,6 +169,9 @@
       <Project>{a0b81b37-d3a4-4284-a764-d7e410086ba3}</Project>
       <Name>Images</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

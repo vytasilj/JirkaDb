@@ -11,6 +11,8 @@
     d:DesignWidth="300"
     mc:Ignorable="d">
 
-    <syncfusion:GridControl />
+    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" MaxHeight="500">
+        <syncfusion:GridControl x:Name="GridControl" CanVerticallyScroll="True" CanHorizontallyScroll="True" />
+    </ScrollViewer>
 
 </UserControl>

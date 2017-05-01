@@ -5,6 +5,7 @@ namespace JirkaDb.FileDialogs
 {
     public static class OpenDialog
     {
+        [CanBeNull]
         public static string GetSqlFile()
         {
             return GetFile("SQL|*.sql");
