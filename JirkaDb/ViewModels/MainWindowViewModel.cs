@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using Caliburn.Micro;
 using JirkaDb.Attributes;
+using JirkaDb.Extensions;
 using JirkaDb.FileDialogs;
 using JirkaDb.Import;
 
@@ -10,37 +11,39 @@ namespace JirkaDb.ViewModels
 {
     public class MainWindowViewModel : Screen
     {
-        private readonly GridViewModel m_gridModel;
+        private readonly BindableCollection<GridViewModel> m_models;
         private readonly Importer m_importer;
 
 
         public MainWindowViewModel()
         {
-            m_gridModel = new GridViewModel();
             m_importer = new Importer();
+            m_models = new BindableCollection<GridViewModel>();
         }
 
-
-        public GridViewModel GridModel => m_gridModel;
+        
+        public BindableCollection<GridViewModel> Models => m_models;
 
 
         [ForUi]
         public void ExportToCsv()
         {
-            string file = SaveDialog.GetCsvFile();
-            if (string.IsNullOrEmpty(file))
+            //string file = SaveDialog.GetCsvFile();
+            string folder = SaveDialog.GetDirectoryForSave();
+            if (string.IsNullOrEmpty(folder))
                 return;
-            m_gridModel.ExportToCsv(file);
-            OpenAfterExport(file);
+            m_models.ForEach(model => model.ExportToCsv(folder));
+            OpenAfterExport(folder);
         }
 
         [ForUi]
         public void ExportToExcel()
         {
+            // TODO: Nefunguje, pokusit se exportovat jinak.
             string file = SaveDialog.GetXlsFile();
             if (string.IsNullOrEmpty(file))
                 return;
-            m_gridModel.ExportToXls(file);
+            m_models.ForEach(model => model.ExportToXls(file));
             OpenAfterExport(file);
         }
 
@@ -50,8 +53,10 @@ namespace JirkaDb.ViewModels
             string file = OpenDialog.GetSqlFile();
             if (string.IsNullOrEmpty(file))
                 return;
+            m_models.Clear();
             var tables = m_importer.Import(file);
-            m_gridModel.ShowTable(tables.First());
+            m_models.AddRange(tables.Where(table => table.Rows.Count > 0).Select(table => new GridViewModel(table)));
+            NotifyOfPropertyChange(nameof(Models));
         }
 
 

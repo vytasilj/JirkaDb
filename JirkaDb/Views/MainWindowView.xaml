@@ -82,9 +82,23 @@
             </fluent:RibbonTabItem>
         </fluent:Ribbon>
 
-        <ContentControl Grid.Row="1" cal:View.Model="{Binding GridModel}" />
-
-        <!--<views:GridView Grid.Row="1" DataContext="{Binding GridModel}" />-->
+        <TabControl
+            Grid.Row="1"
+            ItemsSource="{Binding Models}"
+            SelectedIndex="0">
+            <TabControl.ItemTemplate>
+                <!--  this is the header template  -->
+                <DataTemplate>
+                    <TextBlock Text="{Binding Table.TableName}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <!--  this is the body of the TabItem template  -->
+                <DataTemplate>
+                    <ContentControl cal:View.Model="{Binding}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
 
     </Grid>
 </fluent:RibbonWindow>
