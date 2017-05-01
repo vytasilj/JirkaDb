@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="AppBootstrapper\AppBootstrapper.cs" />
     <Compile Include="Attributes\Attributes.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="FileDialogs\FileDialogUtils.cs" />
     <Compile Include="FileDialogs\OpenDialog.cs" />
     <Compile Include="FileDialogs\SaveDialog.cs" />
